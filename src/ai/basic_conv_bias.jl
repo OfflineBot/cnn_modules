@@ -1,12 +1,12 @@
 
-function basic_conv()
+function basic_conv_bias()
 
     lr = 0.01f0
 
     data = RImage(10, (20, 20), 10, 0.5f0) # 10, 20, 20
 
-    layer1 = BConv(5, 5)
-    layer2 = BConv(5, 5)
+    layer1 = BConvBias(5, 5)
+    layer2 = BConvBias(5, 5)
     layer3 = DenseLayer(12*12, 10)
 
     for i in 1:100_000

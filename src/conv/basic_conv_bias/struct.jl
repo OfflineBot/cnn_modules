@@ -5,13 +5,14 @@ mutable struct BConvBias
     bias::Vector{Float32}
 
     kernel_grad::Union{Array{Float32, 3}, Nothing}
+    bias_grad::Union{Float32, Nothing}
 
     input::Union{Array{Float32, 3}, Nothing}
     z::Union{Array{Float32, 3}, Nothing}
     a::Union{Array{Float32, 3}, Nothing}
 
     function BConvBias(kernel::Array{Float32, 3}, bias::Vector{Float32})
-        return new(kernel, bias, nothing, nothing, nothing, nothing)
+        return new(kernel, bias, nothing, nothing, nothing, nothing, nothing)
     end
 end
 

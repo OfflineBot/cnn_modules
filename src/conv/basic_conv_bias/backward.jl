@@ -2,7 +2,7 @@
 export bbackward!, reshape_delta
 
 
-function reshape_delta(layer::BConv, delta::Matrix{Float32})::Array{Float32, 3}
+function reshape_delta(layer::BConvBias, delta::Matrix{Float32})::Array{Float32, 3}
 
     layer_shape = size(layer.a)
     layer_length = length(layer.a)
@@ -19,7 +19,7 @@ function reshape_delta(layer::BConv, delta::Matrix{Float32})::Array{Float32, 3}
 end
 
 
-function bbackward!(layer::BConv, delta::Array{Float32, 3})::Array{Float32, 3}
+function bbackward!(layer::BConvBias, delta::Array{Float32, 3})::Array{Float32, 3}
     kernel = layer.kernel
 
     delta .*= deriv_relu(layer.z)
@@ -39,6 +39,7 @@ function bbackward!(layer::BConv, delta::Array{Float32, 3})::Array{Float32, 3}
     end
 
     layer.kernel_grad = cross_correlation(layer.input, new_delta)
+    layer.bias_grad = [sum(new_delta)]
     return new_delta
 end
 

@@ -8,6 +8,6 @@ include("./utils/utils.jl")
 
 include("./ai/ai.jl")
 
-basic_conv()
+basic_conv_bias()
 
 end
