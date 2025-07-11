@@ -1,0 +1,12 @@
+name = "cnn_modules"
+uuid = "ffffd8b3-3db0-4550-9462-178bdc0ac58e"
+authors = ["OfflineBot <flintstonelg@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+LanguageServer = "2b0e0bc5-e4fd-59b4-8912-456d1b03d8d7"
+SymbolServer = "cf896787-08d5-524d-9de7-132aaa0cb996"
+
+[compat]
+LanguageServer = "4.5.1"
+SymbolServer = "7.4.0"
